@@ -3,14 +3,14 @@ import java.util.regex.*;
 
 public class UserRegister 
 {
-	static String fName;
+	static String lName;
 	
-	static String firstName()
+	static String lastName()
 	{
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Fisrt name:");
-		fName=scan.nextLine();
-		return fName;
+		System.out.println("Enter Last name:");
+		lName=scan.nextLine();
+		return lName;
 		
 	}
 	
@@ -18,14 +18,14 @@ public class UserRegister
 	{
 		System.out.println("Welcome to User Registration Problem");
 		
-		Boolean firstName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.firstName());
+		Boolean lastName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.lastName());
 		
-		while(firstName == false)
+		while(lastName == false)
 		{
-			System.out.println("Error ! Invalid input from user please enter your First-Name in valid format('A'nkita)");
-			firstName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.firstName());
+			System.out.println("Error ! Invalid input from user please enter your Last-Name in valid format('K'adam)");
+			lastName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.lastName());
 		}
-		System.out.println("Fisrt Name :" +fName);
+		System.out.println("Last Name :" +lName);
 	}
 }
 

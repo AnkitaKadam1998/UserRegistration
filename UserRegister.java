@@ -3,14 +3,14 @@ import java.util.regex.*;
 
 public class UserRegister 
 {
-	static String lName;
+	static String email;
 	
-	static String lastName()
+	static String email()
 	{
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Last name:");
-		lName=scan.nextLine();
-		return lName;
+		System.out.println("Enter Email ID:");
+		email=scan.nextLine();
+		return email;
 		
 	}
 	
@@ -18,14 +18,14 @@ public class UserRegister
 	{
 		System.out.println("Welcome to User Registration Problem");
 		
-		Boolean lastName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.lastName());
+		Boolean email = Pattern.matches("^[A-Z a-z 0-9]+([._*+][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]*.[a-z A-Z]{2,3}([.][ a-z A-Z]{2})*$",UserRegister.email());
 		
-		while(lastName == false)
+		while(email == false)
 		{
-			System.out.println("Error ! Invalid input from user please enter your Last-Name in valid format('K'adam)");
-			lastName = Pattern.matches("^[A-Z]{1}[a-z]{2,}",UserRegister.lastName());
+			System.out.println("Error ! Invalid input from user please enter your Email id in valid format('ankita80kadam@gmail.com')");
+			email = Pattern.matches("^[A-Z a-z 0-9]+([._*+][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]*.[a-z A-Z]{2,3}([.][ a-z A-Z]{2})*$",UserRegister.email());
 		}
-		System.out.println("Last Name :" +lName);
+		System.out.println("Email ID :" +email);
 	}
 }
 

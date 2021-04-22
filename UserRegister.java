@@ -3,29 +3,30 @@ import java.util.regex.*;
 
 public class UserRegister 
 {
-	static String email;
+	static String mobileNumber;
 	
-	static String email()
+	static String mobileNumber()
 	{
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Email ID:");
-		email=scan.nextLine();
-		return email;
+		System.out.println("Enter Mobile Number:");
+		mobileNumber=scan.nextLine();
+		return mobileNumber;
 		
 	}
 	
 	public static void main(String args[])
 	{
+
 		System.out.println("Welcome to User Registration Problem");
 		
-		Boolean email = Pattern.matches("^[A-Z a-z 0-9]+([._*+][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]*.[a-z A-Z]{2,3}([.][ a-z A-Z]{2})*$",UserRegister.email());
+		Boolean mobileNumber = Pattern.matches("^[9][1] [6-9]{1}[0-9]{9}",UserRegister.mobileNumber());
 		
-		while(email == false)
+		while(mobileNumber == false)
 		{
-			System.out.println("Error ! Invalid input from user please enter your Email id in valid format('ankita80kadam@gmail.com')");
-			email = Pattern.matches("^[A-Z a-z 0-9]+([._*+][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]*.[a-z A-Z]{2,3}([.][ a-z A-Z]{2})*$",UserRegister.email());
+			System.out.println("Error ! Invalid input from user please enter your mobile number in valid format(91 9999999999)");
+			mobileNumber = Pattern.matches("^[9][1] [6-9]{1}[0-9]{9}",UserRegister.mobileNumber());
 		}
-		System.out.println("Email ID :" +email);
+		System.out.println("Mobile Number :" + mobileNumber);
 	}
 }
 

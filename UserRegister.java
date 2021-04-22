@@ -66,7 +66,7 @@ public class UserRegister {
       Boolean phoneNum = Pattern.matches("^[9][1] [6-9]{1}[0-9]{9}" ,UserRegister.phoneNum());
 
 		
-      Boolean passwordCheck = Pattern.matches("^[a-zA-Z]{8,}" ,UserRegister.passwordCheck());
+      Boolean passwordCheck = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z]).{8,}" ,UserRegister.passwordCheck());
 
       
       while(firstName == false) {
@@ -91,7 +91,7 @@ public class UserRegister {
 
 		while(passwordCheck == false) {
          System.out.println("Error! Invalid input from user please enter your password in valid format(should contain atleast 8 characters).");
-     		passwordCheck = Pattern.matches("^[a-z]{8,}" ,UserRegister.passwordCheck());
+     		passwordCheck = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z]).{8,}" ,UserRegister.passwordCheck());
 		}
 
       

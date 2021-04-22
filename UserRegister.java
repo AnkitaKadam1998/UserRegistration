@@ -3,8 +3,7 @@ import java.util.regex.*;
 
 public class UserRegister {
 
-	static String fName;
-	static String lName;
+	static String fName;	static String lName;
 	static String email;
 	static String pNum;
 	static String password;

@@ -1,47 +1,89 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import org.junit.Test;
 
-class ValidationJunit {
-
-	private ValidationJunit() {}
-
-	public static boolean isValidFirstName(String firstName)
+public class ValidationUnitTest {
+	
+	@Test
+	public void testFirstName_shouldReturnTrue()
 	{
-		final String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);		
-		Matcher matcher = pattern.matcher(firstName);
-		return matcher.matches();	
-	}
-	public static boolean isValidLastName(String lastName)
-	{
-		final String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);		
-		Matcher matcher = pattern.matcher(lastName);
-		return matcher.matches();	
+		String firstName= "Ankita";
+		boolean isValidFirstName = ValidationJunit.isValidFirstName(firstName);
+		assertTrue(isValidFirstName);
 	}
 	
-	public static boolean isValidEmail(String email)
+	@Test
+	public void testFirstName_shouldReturnFalse()
 	{
-		final String regex = "^[A-Z a-z 0-9]+([._*+][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]*.[a-z A-Z]{2,3}([.][ a-z A-Z]{2})*$";
-		Pattern pattern = Pattern.compile(regex);		
-		Matcher matcher = pattern.matcher(email);
-		return matcher.matches();	
+		String firstName= "ankita";
+		boolean isValidFirstName = ValidationJunit.isValidFirstName(firstName);
+		assertFalse(isValidFirstName);
 	}
 	
-	public static boolean isValidMobileNumber(String mobilenumber)
+	@Test
+	public void testLastName_shouldReturnTrue()
 	{
-		final String regex = "^[9][1] [6-9]{1}[0-9]{9}";
-		Pattern pattern = Pattern.compile(regex);		
-		Matcher matcher = pattern.matcher(mobilenumber);
-		return matcher.matches();	
+		String lastName= "Kadam";
+		boolean isValidLastName = ValidationJunit.isValidFirstName(lastName);
+		assertTrue(isValidLastName);
 	}
 	
-	public static boolean isValidPassword(String password)
+	@Test
+	public void testLastName_shouldReturnFalse()
 	{
-		final String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}";
-		Pattern pattern = Pattern.compile(regex);		
-		Matcher matcher = pattern.matcher(password);
-		return matcher.matches();	
+		String lastName= "kadam";
+		boolean isValidLastName = ValidationJunit.isValidLastName(lastName);
+		assertFalse(isValidLastName);
 	}
+	
+	@Test
+	public void testEmail_ShouldReturnTrue()
+	{
+		String email="xyz@gmail.com";
+		boolean isValidEmail = ValidationJunit.isValidEmail(email);
+		assertTrue(isValidEmail);
+	}
+	
+	@Test
+	public void testEmail_shouldReturnFalse()
+	{
+		String email= "xyz@gmail..com";
+		boolean isValidEmail = ValidationJunit.isValidLastName(email);
+		assertFalse(isValidEmail);
+	}
+	
+	@Test
+	public void testMobileNumber_ShouldReturnTrue()
+	{
+		String mobilenumber="91 9999876479";
+		boolean isValidMobileNumber = ValidationJunit.isValidMobileNumber(mobilenumber);
+		assertTrue(isValidMobileNumber);
+	}
+	
+	@Test
+	public void testMobileNumber_ShouldReturnFalse()
+	{
+		String mobilenumber="9999876479";
+		boolean isValidMobileNumber = ValidationJunit.isValidMobileNumber(mobilenumber);
+		assertFalse(isValidMobileNumber);
+	}
+	
+	@Test
+	public void testPassword_ShouldReturnTrue()
+	{
+		String password="Xyz@12345";
+		boolean isValidPassword = ValidationJunit.isValidPassword(password);
+		assertTrue(isValidPassword);
+	}
+	
+	@Test
+	public void testPassword_ShouldReturnFalse()
+	{
+		String password="xyz";
+		boolean isValidPassword = ValidationJunit.isValidMobileNumber(password);
+		assertFalse(isValidPassword);
+	}
+
 }
+
 
